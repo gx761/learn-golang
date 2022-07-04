@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math"
 	"strings"
 )
 
@@ -45,7 +44,7 @@ func drawTable(get getData) {
 
 	for c <= 100 {
 		// fmt.Println("|", c, strings.Repeat(" ", 6), "|", c, strings.Repeat(" ", 6), "|")
-		fmt.Printf("| %-8v | %-8v |\n", math.Floor(c*100)/100, celsiusToFahrenheit(celsius(c)))
+		fmt.Printf("| %-8.1f | %-8.1f |\n", c, celsiusToFahrenheit(celsius(c)))
 		c = g()
 	}
 
