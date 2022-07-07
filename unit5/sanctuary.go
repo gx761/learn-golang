@@ -1,6 +1,9 @@
 package main
 
-import "math/rand"
+import (
+	"fmt"
+	"math/rand"
+)
 
 type dog struct {
 	name string
@@ -76,6 +79,15 @@ func (d cat) eat() string {
 	}
 }
 
+func step(a animal) {
+	i := rand.Intn(2)
+	if i == 0 {
+		fmt.Println(a.eat())
+	} else {
+		fmt.Println(a.move())
+	}
+}
+
 func main() {
 	dog := dog{"doudou"}
 	cat := cat{"xiaoming"}
@@ -84,5 +96,14 @@ func main() {
 
 	sols := 3
 	dayLong := 24
+
+	for i := 0; i < sols*dayLong; i++ {
+		h := i % 24
+		if h >= 18 || h <= 6 {
+			fmt.Println("sleeping")
+		} else {
+			step(animals[rand.Intn(2)])
+		}
+	}
 
 }
